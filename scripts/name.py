@@ -2,13 +2,13 @@
 def Analyze(path):
     import cv2
     from roboflow import Roboflow
-    rf = Roboflow(api_key="Ox9EnqPo6BpmOWSX9sTr")
-    project = rf.workspace().project("trafficlight-yrw25")
-    model = project.version(1).model
+    rf = Roboflow (api_key="Ox9EnqPo6BpmOWSX9sTr") #(api_key="Ox9EnqPo6BpmOWSX9sTr")
+    project = rf.workspace().project("zdjecia-drogowe")
+    model = project.version(6).model
     #img = "C:\\Users\\kacpe\\Desktop\\OSP\\dataset\\g6.jpg"
     img = cv2.imread(path,0)
 
-    predictions = model.predict(img, confidence=20, overlap=30).json()
+    predictions = model.predict(img, confidence=70, overlap=40).json()
 
     for bounding_box in predictions['predictions']:
         x0 = bounding_box['x'] - bounding_box['width'] / 2
