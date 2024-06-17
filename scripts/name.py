@@ -29,6 +29,17 @@ def Analyze(path):
             color = (255, 255, 255),
             thickness=2
         )
+    if bounding_box["class"] == "zielone":
+        bounding_box["class"] = "Zielone swiatlo"
+    elif bounding_box["class"] == "czerwone":
+        bounding_box["class"] = "Czerwone swiatlo"
+    elif bounding_box["class"] == "ust":
+        bounding_box["class"] = "Znak ustap pierwszenstwa"
+    elif bounding_box["class"] == "pierw":
+        bounding_box["class"] = "Znak drogi z pierwszenstwem"
+    elif bounding_box["class"] == "stop":
+        bounding_box["class"] = "Znak Stop"
+
     return bounding_box["class"]
 #cv2.imshow("example_with_bounding_boxes.jpg", img)
 #cv2.waitKey(0) # waits until a key is pressed
